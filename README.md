@@ -1,13 +1,7 @@
 # MyReads Project
 
-This is a simple book app  where user can find the books s/he is currently reading, have read or wish to read in future. It can click to search for more books and can categorize it into the right bookshelves of: "Currently Reading", "Want to read" and already "Read". 
+This is a basic book app where user can find the books s/he is currently reading, have read or wish to read in future. It can click to search for more books and can categorize it into the right bookshelves of: "Currently Reading", "Want to read" and already "Read". 
 
-## TL;DR
-
-To get started developing right away:
-
-* install all project dependencies with `npm install`
-* start the development server with `npm start`
 
 ## Project Overlook
 ```bash
@@ -40,7 +34,7 @@ To get started developing right away:
 ### Installing
 
 1. **Clone or download this repository**  
-Change to a folder you want the app folder in. Then clone the files of this repo to a new directory and changee into it: 
+Change to a folder you want the app folder in. Then clone the files of this repo to a new directory and change into it: 
 
 ```console
 $ git clone https://github.com/silvermind20/ReactND-Myreads MyReadsApp
