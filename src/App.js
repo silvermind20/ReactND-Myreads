@@ -10,12 +10,13 @@ import { Link } from 'react-router-dom'
 class BooksApp extends React.Component {
   state = { books: [] }
 
-  componentDidMount() {
-    BooksAPI.getAll().then(books => this.setState({ books }))
+  async componentDidMount() {
+    const books = await BooksAPI.getAll()
+    this.setState({ books })
   }
 
   updateBookShelf = (changedBook, shelf) => {
-    BooksAPI.update(changedBook, shelf).then(response => {
+    BooksAPI.update(changedBook, shelf).then(() => {
       changedBook.shelf = shelf
       this.setState(currstate => ({
         books: currstate.books.filter(book => book.id !== changedBook.id).concat(changedBook)
@@ -39,7 +40,9 @@ class BooksApp extends React.Component {
             </div>
           </div>
         )} />
-        <Route path='/search' render={() => (<Search books={books} updateBookShelf={this.updateBookShelf} />)} />
+        <Route path='/search'>
+          <Search books={books} updateBookShelf={this.updateBookShelf} />
+        </Route>
       </div>
     )
   }

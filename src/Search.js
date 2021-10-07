@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book'
+import debounce from 'lodash.debounce'
 
 
 class Search extends React.Component {
@@ -12,7 +13,9 @@ class Search extends React.Component {
         error: false
     }
 
-    searchBook = query => {
+
+    searchBook = event => {
+        const query = event.target.value
         this.setState({ query })
         if (query) {
             BooksAPI.search(query.trim(), 20).then(searched => {
@@ -34,7 +37,7 @@ class Search extends React.Component {
                     <Link className="close-search" to="/" >Close</Link>
                     <div className="search-books-input-wrapper">
                         <input type="text" name='query' placeholder="Search by title or author"
-                            value={query} onChange={(event) => this.searchBook(event.target.value)} />
+                            value={query} onChange={this.searchBook} />
                     </div>
                 </div>
                 <div className="search-books-results">
